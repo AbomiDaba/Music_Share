@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/dashboard.css')}}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="nav">
+        <h1>Welcome, {{user.first_name}}!</h1>
+        <div class="links">
+            <a href="/add_page/song">Add Song</a>
+            <a href="/logout">Log Out</a>
+        </div>
+    </div>
+   <div class="description">
+        <h1> Welecome to my web page!</h1>
+        <h3>Thank you for creating an account! This app is a place for people to come together and share their favorite songs. You can add songs to the music table to let everyone know what music you listen to, and its also a place where you can discover new songs you never heard of! Get introduced to songs that you'll wanna add to your list. If you like another users songs, feel free to give it a like. I hope you Enjoy my app. Have fun sharing!!</h3>
+    </div>
+    <div class="white"></div>
+    <h1 id="title">Music List</h1>
+    <div class="content">
+        <table>
+            <thead>
+                <tr class="visible">
+                    <th>User Name</th>
+                    <th>Artist</th>
+                    <th>Song Name</th>
+                    <th>Genre</th>
+                    <th>Actions</th>
+                    <th>Likes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                    <tr class="visible">
+                        <td>{{song.user.first_name}} {{song.user.last_name}}</td>
+                        <td>{{song.artist}}</td>
+                        <td>{{song.name}}</td>
+                        <td>{{song.genre}}</td>
+                        {% if user.id == song.user_id %}
+                            <td id="links" ><a href="/edit_page/song/{{song.id}}">edit</a>|<a href="/destroy/song/{{song.id}}">delete</a></td>
+                        {% elif song.id not in liked_song_id_list %}
+                            <td><form action="/like/song/{{song.id}}" method="post"><input type="submit" value="Like"></form></td>
+                        {% else %}
+                            <td><form action="/destroy/like/{{song.id}}"><input type="submit", value="un-like"></form></td>
+                        {% endif %}
+                        <td>{{song.likers|length}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+    </div>
+</body>
+</html>

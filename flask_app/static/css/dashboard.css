@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(../img/music_1.jpg);
+}
+
+td{
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    color: white;
+    font-family: cursive;
+    text-align: center;
+    height: 30px;
+    padding-right: 10px;
+    
+    
+}
+th{
+    color: rgb(207, 50, 207);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    height: 30px;
+}
+
+table{
+    width: 80%;
+    /* height: 250px; */
+    /* background-color: yellowgreen; */
+    margin: 10px 20px 5px 20px;
+    /* flex-grow: 1; */
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+tbody tr{
+    background-color: yellowgreen;
+
+}
+thead tr{
+    background-color: rgb(63, 90, 9);
+
+}
+tr:hover{
+    background-color: rgb(158, 197, 80);
+    cursor: pointer;
+}
+
+h1{
+    font-family: cursive;
+    color: white;
+}
+h2{
+    font-family: cursive;
+    color: yellowgreen;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: yellowgreen;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: inherit;
+    border: 3px ;
+    border-style: solid;
+    border-color: rgb(42, 77, 7);
+    position: sticky
+}
+.nav h1{
+    color: purple;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding: 20px 0 30px 0;
+    justify-content: space-around;
+    /* background-color: rgb(92, 156, 28); */
+    border-radius: 10px;
+}
+
+a{
+    color: purple;
+    text-decoration: none;
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    width: 220px;
+
+}
+td a{
+    color: rgb(207, 50, 207);
+    border: 1px solid purple;
+    border-radius: 5px;
+    padding: 3px;
+    margin-top: 5px;
+}
+#links {
+    padding: 5px;
+}
+
+
+tbody tr:last-of-type{
+    border-bottom: 5px solid rgb(207, 50, 207);
+}
+input{
+    border-radius: 5px;
+    padding: 3px;
+    font-family: cursive;
+    color: white;
+    background-color:rgb(207, 50, 207) ;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.description{
+    text-align: center;
+    /* background-image: url(../img/music_1.jpg); */
+    background-color: yellowgreen;
+    background-size: cover;
+    border-radius: 10px;
+    width: 1058px;
+    margin: auto;
+    margin-top: 5px;
+}
+.description h3{
+    font-family: cursive;
+    padding: 4pc;
+    color: rgb(207, 50, 207);
+
+}
+.description h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 10px;
+    color: grey;
+}
+.white{
+    background-color: purple;
+    height: 40px;
+    width: 1058px;
+    margin: auto;
+    border-radius: 10px;
+}
+#title{
+    color: red;
+    background-color: yellowgreen;
+    color: red;
+    font-family: cursive;
+    margin: auto;
+    margin-bottom: 10px;
+    border-bottom: 2px solid red;
+    width: 300px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 10px;
+}

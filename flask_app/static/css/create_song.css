@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url(../img/music_1.jpg);
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    background-color:yellowgreen ;
+    width: 300px;
+    height: 300px;
+    justify-content: space-between;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+    font-family: cursive;
+    border:2px solid purple;
+
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(97, 126, 39);
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: inherit;
+    border: 3px ;
+    border-style: solid;
+    border-color: rgb(20, 37, 2);
+    position: sticky;
+    margin-bottom: 10px;
+}
+form{
+    width: inherit;
+    height: 350px;
+    color: purple;
+}
+input{
+    border-radius: 5px;
+    height: 20px;
+    border: 1px solid white;
+}
+input:focus{
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+}
+button{
+    width: 75px;
+    border-radius: 5px;
+    background-color: purple;
+    color: yellowgreen;
+    cursor: pointer;
+}
+h2{
+    text-align: center;
+    font-family: cursive;
+    margin: auto;
+    color: purple;
+    background-color: yellowgreen;
+    width: 150px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: 2px solid purple;
+}
+a{
+    text-decoration: none;
+    color: purple;
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    width: 220px;
+}
+.nav h1{
+    color: purple;
+}

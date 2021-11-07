@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename= 'css/edit_song.css')}}">
+
+    <title>Edit Song</title>
+</head>
+<body>
+    <div class="nav">
+        <h1>Welcome, {{user.first_name}}!</h1>
+        <div class="links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Log Out</a>
+        </div>
+    </div>
+    <h2>Edit Song:</h2>
+    <form action="/edit/song/{{song.id}}", method="post">
+        <div class="form">
+            <div>
+                <label for="artist">Artist:</label>
+                <input type="text", name="artist", value="{{song.artist}}">
+            </div>
+            <div>
+                <label for="name">Song Name:</label>
+                <input type="text", name="name", value="{{song.name}}">
+            </div>
+            <div>
+                <label for="genre">Genre:</label>
+                <input type="text", name="genre", value="{{song.genre}}">
+            </div>
+            <button>Edit Song</button>
+        </div>
+    </form>
+</body>
+</html>
