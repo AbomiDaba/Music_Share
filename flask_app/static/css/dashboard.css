@@ -49,7 +49,6 @@ thead tr{
 }
 tr:hover{
     background-color: rgb(158, 197, 80);
-    cursor: pointer;
 }
 
 h1{
@@ -124,13 +123,13 @@ input{
 
 .description{
     text-align: center;
-    /* background-image: url(../img/music_1.jpg); */
     background-color: yellowgreen;
     background-size: cover;
     border-radius: 10px;
     width: 1058px;
     margin: auto;
     margin-top: 5px;
+    border: 2px solid purple;
 }
 .description h3{
     font-family: cursive;

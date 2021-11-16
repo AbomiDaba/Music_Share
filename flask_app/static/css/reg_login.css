@@ -26,9 +26,10 @@ form{
     height: inherit;
 }
 input{
-    border-radius: 5px;
+    /* border-radius: 5px; */
     height: 20px;
     border: 1px solid white;
+    height: 30px;
 }
 .register button{
     background-color:purple;
@@ -36,6 +37,9 @@ input{
     width: 60px;
     margin-top: 5px;
     border-radius: 5px;
+    font-family: cursive;
+    padding: 3px;
+    cursor: pointer;
 }
 .register h1{
     color:purple;
@@ -60,6 +64,8 @@ input{
     width: 60px;
     margin-top: 5px;
     border-radius: 5px;
+    font-family: cursive;
+    cursor: pointer;
     
 }
 p{

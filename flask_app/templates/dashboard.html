@@ -29,6 +29,7 @@
                     <th>Artist</th>
                     <th>Song Name</th>
                     <th>Genre</th>
+                    <th>Date Added</th>
                     <th>Actions</th>
                     <th>Likes</th>
                 </tr>
@@ -40,6 +41,7 @@
                         <td>{{song.artist}}</td>
                         <td>{{song.name}}</td>
                         <td>{{song.genre}}</td>
+                        <td>{{song.created_at.strftime('%m/%d/%Y')}}</td>
                         {% if user.id == song.user_id %}
                             <td id="links" ><a href="/edit_page/song/{{song.id}}">edit</a>|<a href="/destroy/song/{{song.id}}">delete</a></td>
                         {% elif song.id not in liked_song_id_list %}

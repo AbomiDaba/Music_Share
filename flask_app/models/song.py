@@ -26,6 +26,7 @@ class Song:
     def get_songs_with_users_and_likers(cls):
         query = 'SELECT * FROM songs JOIN users ON songs.user_id = users.id LEFT JOIN likes ON songs.id = likes.song_id LEFT JOIN users as likers ON likers.id = likes.user_id ORDER BY songs.created_at DESC'
         results = connectToMySQL('solo_project').query_db(query)
+        print(results)
         songs = []
         for row in results:
             new_song = True
@@ -47,16 +48,21 @@ class Song:
                 'created_at' : row['users.created_at'],
                 'updated_at' : row['users.updated_at']
             }
+            print(f"current row id: {row['id']}")
+            if songs:
+                print(f"previous song id: {songs[len(songs) - 1].id}")
+                print(f"song_list length: {len(songs)}")
             if len(songs) > 0 and songs[len(songs) - 1].id == row['id']:
-                new_song = False
                 songs[len(songs) - 1].likers.append(user.User(user_2_data))
+                new_song = False
+
 
             if new_song:
                 s = cls(row)
                 s.user = user.User(user_data)
                 if row['likers.id'] is not None:
                     s.likers.append(user.User(user_2_data))
-            songs.append(s)
+                songs.append(s)
         return songs
 
     @classmethod
