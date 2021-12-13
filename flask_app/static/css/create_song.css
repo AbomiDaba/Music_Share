@@ -23,7 +23,7 @@ body{
 .nav{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(97, 126, 39);
+    background-color: yellowgreen;
     align-items: center;
     padding-left: 50px;
     padding-right: 50px;
