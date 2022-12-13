@@ -12,7 +12,7 @@ td{
     color: white;
     font-family: cursive;
     text-align: center;
-    height: 30px;
+    /* height: 30px; */
     padding-right: 10px;
     
     
@@ -23,15 +23,12 @@ th{
     border-bottom: 1px solid black;
     border-collapse: collapse;
     text-align: center;
-    height: 30px;
+    /* height: 30px; */
 }
 
 table{
     width: 80%;
-    /* height: 250px; */
-    /* background-color: yellowgreen; */
     margin: 10px 20px 5px 20px;
-    /* flex-grow: 1; */
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-bottom: 1px solid black;
@@ -76,14 +73,30 @@ h2{
     color: purple;
 }
 .content{
+    width: 95%;
+    overflow-x:auto;
     display: flex;
     flex-wrap: wrap;
     margin: 20px;
     padding: 20px 0 30px 0;
     justify-content: space-around;
-    /* background-color: rgb(92, 156, 28); */
     border-radius: 10px;
 }
+
+.content::-webkit-scrollbar{
+    width: 10%;
+}
+.content::-webkit-scrollbar-track{
+    background-color: black;
+    border-radius: 100vw;
+    margin-block: .5em;
+}
+
+.content::-webkit-scrollbar-thumb{
+    background-color: purple;
+    border-radius: 100vw;
+}
+
 
 a{
     color: purple;
@@ -126,7 +139,7 @@ input{
     background-color: yellowgreen;
     background-size: cover;
     border-radius: 10px;
-    width: 1058px;
+    width: 95%;
     margin: auto;
     margin-top: 5px;
     border: 2px solid purple;
@@ -142,10 +155,10 @@ input{
     padding-top: 10px;
     color: grey;
 }
-.white{
+.purple{
     background-color: purple;
     height: 40px;
-    width: 1058px;
+    width: 95%;
     margin: auto;
     border-radius: 10px;
 }

@@ -5,6 +5,10 @@ body{
     display: flex;
     justify-content: center;
     padding: 30px;
+    width: inherit;
+}
+.register {
+    width: 40%;
 }
 
 label{
@@ -16,15 +20,13 @@ label{
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 20px 10px 20px;
-    width: 300px;
+    width: inherit;
     background-color: yellowgreen;
     margin-right: 50px;
     border-radius: 10px;
     border: 2px solid purple;
 }
-form{
-    height: inherit;
-}
+
 input{
     /* border-radius: 5px; */
     height: 20px;
@@ -44,17 +46,23 @@ input{
 .register h1{
     color:purple;
 }
+
+.login {
+    width: 40%;
+}
 .log_in{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 20px 10px 20px;
-    width: 300px;
+    width: inherit;
+    height: inherit;
     background-color: yellowgreen;
     margin-right: 50px;
     border: 2px solid purple;
     border-radius: 10px;
 }
+
 .login h1{
     color: purple;
 }
@@ -81,4 +89,24 @@ input:focus{
     outline: none !important;
     border-color: #719ECE;
     box-shadow: 0 0 10px #719ECE;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10%;
+    }
+    .log_in {
+        margin-top: 20px;
+    }
+    .login {
+        width: 90%;
+    }
+
+    .register {
+        width: 90%;
+    }
+    
 }
