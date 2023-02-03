@@ -24,7 +24,7 @@ class Song:
 
     @classmethod
     def get_songs_with_users_and_likers(cls):
-        query = 'SELECT * FROM songs JOIN users ON songs.user_id = users.id LEFT JOIN likes ON songs.id = likes.song_id LEFT JOIN users as likers ON likers.id = likes.user_id ORDER BY songs.created_at DESC'
+        query = 'SELECT * FROM songs JOIN users ON songs.user_id = users.id LEFT JOIN likes ON songs.id = likes.song_id LEFT JOIN users as likers ON likers.id = likes.FK_likes_users ORDER BY songs.created_at DESC'
         results = connectToMySQL('solo_project').query_db(query)
         print(results)
         songs = []
@@ -85,13 +85,13 @@ class Song:
 
     @classmethod
     def create_like(cls, data):
-        query ='INSERT INTO likes (song_id, user_id) VALUES(%(song_id)s, %(user_id)s)'
+        query ='INSERT INTO likes (song_id, FK_likes_users) VALUES(%(song_id)s, %(FK_likes_users)s)'
         like = connectToMySQL('solo_project').query_db(query, data)
         return like
 
     @classmethod
     def destroy_like(cls, data):
-        query = 'DELETE FROM likes WHERE likes.song_id = %(song_id)s and likes.user_id =  %(user_id)s'
+        query = 'DELETE FROM likes WHERE likes.song_id = %(song_id)s and likes.FK_likes_users =  %(FK_likes_users)s'
         delete = connectToMySQL('solo_project').query_db(query, data)
         return delete
 

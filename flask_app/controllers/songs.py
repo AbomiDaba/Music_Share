@@ -58,7 +58,7 @@ def create_like(song_id):
     if 'user_id' not in session:
         return redirect('/')
     data ={
-        'user_id' : session['user_id'],
+        'FK_likes_users' : session['user_id'],
         'song_id': song_id
     }
     Song.create_like(data)
@@ -80,7 +80,7 @@ def destroy_like(song_id):
         return redirect ('/')
     data = {
         'song_id' : song_id,
-        'user_id' : session['user_id']
+        'FK_likes_users' : session['user_id']
     }
 
     Song.destroy_like(data)
