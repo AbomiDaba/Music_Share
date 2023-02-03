@@ -4,10 +4,10 @@ import pymysql.cursors
 class MySQLConnection:
     def __init__(self, db):
         # change the user and password as needed
-        connection = pymysql.connect(host = 'containers-us-west-64.railway.app',
+        connection = pymysql.connect(host = '127.0.0.1',
                                     user = 'root', 
-                                    password = 'rQpMVMzWbcU5myOGjkx0', 
-                                    db = db ,
+                                    password = 'root', 
+                                    db = db,
                                     charset = 'utf8mb4',
                                     cursorclass = pymysql.cursors.DictCursor,
                                     autocommit = True)
