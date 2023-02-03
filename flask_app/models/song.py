@@ -18,14 +18,14 @@ class Song:
     @classmethod
     def get_one_song(cls, data):
         query = 'SELECT * FROM songs WHERE songs.id = %(id)s'
-        result = connectToMySQL('solo_project').query_db(query, data)
+        result = connectToMySQL().query_db(query, data)
         song = cls(result[0])
         return song
 
     @classmethod
     def get_songs_with_users_and_likers(cls):
         query = 'SELECT * FROM songs JOIN users ON songs.user_id = users.id LEFT JOIN likes ON songs.id = likes.song_id LEFT JOIN users as likers ON likers.id = likes.FK_likes_users ORDER BY songs.created_at DESC'
-        results = connectToMySQL('solo_project').query_db(query)
+        results = connectToMySQL().query_db(query)
         print(results)
         songs = []
         for row in results:
@@ -68,7 +68,7 @@ class Song:
     @classmethod
     def get_liked_songs(cls, data):
         query = 'SELECT song_id FROM likes JOIN users on likes.user_id = users.id WHERE users.id = %(id)s'
-        results = connectToMySQL('solo_project').query_db(query, data)
+        results = connectToMySQL().query_db(query, data)
         liked_songs = []
         if results != False:
             for row in results:
@@ -80,31 +80,31 @@ class Song:
     @classmethod
     def create_song(cls, data):
         query ='INSERT INTO songs (artist, name, genre, created_at, updated_at, user_id) VALUES(%(artist)s, %(name)s, %(genre)s, NOW(), NOW(), %(user_id)s)'
-        song = connectToMySQL('solo_project').query_db(query, data)
+        song = connectToMySQL().query_db(query, data)
         return song
 
     @classmethod
     def create_like(cls, data):
         query ='INSERT INTO likes (song_id, FK_likes_users) VALUES(%(song_id)s, %(FK_likes_users)s)'
-        like = connectToMySQL('solo_project').query_db(query, data)
+        like = connectToMySQL().query_db(query, data)
         return like
 
     @classmethod
     def destroy_like(cls, data):
         query = 'DELETE FROM likes WHERE likes.song_id = %(song_id)s and likes.FK_likes_users =  %(FK_likers_users)s'
-        delete = connectToMySQL('solo_project').query_db(query, data)
+        delete = connectToMySQL().query_db(query, data)
         return delete
 
     @classmethod
     def edit_song(cls, data):
         query = 'UPDATE songs SET artist = %(artist)s, name = %(name)s, genre = %(genre)s WHERE songs.id = %(id)s'
-        edit = connectToMySQL('solo_project').query_db(query, data)
+        edit = connectToMySQL().query_db(query, data)
         return edit
 
     @classmethod
     def destroy_song(cls, data):
         query = 'DELETE FROM songs WHERE songs.id = %(id)s'
-        delete = connectToMySQL('solo_project').query_db(query, data)
+        delete = connectToMySQL().query_db(query, data)
         return delete
 
 
