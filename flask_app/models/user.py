@@ -16,7 +16,7 @@ class User:
         self.songs = []
 
     def get_all(cls):
-        connection = connectToMySQL()
+        connection = connectToMySQL('railway')
         query = 'select * from users'
         results = connection.query_db(query)
         users = []
@@ -26,20 +26,20 @@ class User:
 
     @classmethod
     def save(cls, data):
-        connection = connectToMySQL()
+        connection = connectToMySQL('railway')
         query = "INSERT INTO users ( first_name , last_name , email , password, created_at, updated_at ) VALUES ( %(first_name)s , %(last_name)s , %(email)s , %(password)s, NOW() , NOW() );"
         return connection.query_db( query, data )
 
     @classmethod
     def get_one(cls, data):
-        connection = connectToMySQL()
+        connection = connectToMySQL('railway')
         query = 'select * from users where id = %(id)s'
         result = connection.query_db(query, data)
         return cls(result[0])
 
     @classmethod
     def get_all_with_songs(cls):
-        connection = connectToMySQL()
+        connection = connectToMySQL('railway')
         query = 'SELECT * FROM users JOIN songs ON users.id = songs.user_id'
         result = connection.query_db(query)
         users = []
@@ -66,20 +66,20 @@ class User:
         return users
     @classmethod
     def update(cls, data):
-        connection = connectToMySQL()
+        connection = connectToMySQL('railway')
         query = 'update users set first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, password = %(password)s, where id = %(id)s'
         return connection.query_db(query,data)
 
     @classmethod
     def destroy(cls, data):
-        connection = connectToMySQL()
+        connection = connectToMySQL('railway')
         query = 'delete from users where id = %(id)s'
         return connection.query_db(query, data)
 
     @classmethod
     def get_by_email(cls, data):
         query = 'SELECT * FROM users where email = %(email)s'
-        result = connectToMySQL().query_db(query, data)
+        result = connectToMySQL('railway').query_db(query, data)
         if result != False:
             if len(result) < 1:
                 return False
@@ -103,7 +103,7 @@ class User:
             is_valid = False
 
         query = 'SELECT * FROM users where email = %(email)s'
-        result = connectToMySQL().query_db(query, data)
+        result = connectToMySQL('railway').query_db(query, data)
         if len(result) >= 1:
             flash('Email alreaedy in use', 'register')
             is_valid = False
